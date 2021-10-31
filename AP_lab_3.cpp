@@ -2,27 +2,27 @@
 
 int main()
 {
-	int n, k, arr[50];
+	int arraySize, firstInconsistentElement, plural[50];
 	printf("Array size :\n");
-	scanf_s("%i", &n);
+	scanf_s("%i", &arraySize);
 	printf("Enter elements of arry :\n");
-	scanf_s("%i", arr);
-
-	for (int i = 0; i < n - 1; i++)
+	scanf_s("%i", &plural[0]); 
+	for (int i = 0; i < arraySize - 1; i++)
 	{
-		scanf_s("%d", &k);
-		if ((k == arr[i] + 1) && (i == n - 2))
+		scanf_s("%d", &firstInconsistentElement);
+		if ((firstInconsistentElement == plural[i] + 1) && (i == arraySize - 2))
 		{
 			printf("Null\n");
 		}
-		else if ((k == arr[i] + 1) && (i != n - 1))
+		else if ((firstInconsistentElement == plural[i] + 1) && (i != arraySize - 1))
 		{
-			arr[i + 1] = k;
+			plural[i + 1] = firstInconsistentElement;
 		}
 		else
 		{
-			printf("This element is : %i\n", k);
+			printf("This element is : %i\n", firstInconsistentElement);
 			break;
 		}
 	}
+	return 0;
 }
